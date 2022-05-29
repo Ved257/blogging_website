@@ -1,0 +1,22 @@
+.navbar {
+  background-color: aliceblue;
+  padding: 20px;
+  color: black;
+  max-width: 100%;
+  position: sticky !important;
+  top: 0;
+  z-index:1; 
+
+}
+
+.navbar_links {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  padding: 5px;
+  justify-content: space-around !important;
+}
+
+

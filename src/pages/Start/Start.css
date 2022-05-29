@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@300&display=swap");
+
+.Start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #87cbff58;
+}
+
+.main_heading{
+    font-family: "Montserrat", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left:10%;
+    top:130%;
+}
+
+
+.image_2{
+    position: absolute;
+    top:130%;
+    right:7%
+}

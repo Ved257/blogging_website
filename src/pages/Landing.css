@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@300&display=swap");
+
+.Landing {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  height: 100vh;
+}
+
+.Landing-container {
+  padding: 20px;
+}
+
+.image_1 {
+  position: absolute;
+  right: 5%;
+  padding: 50px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  font-size: 35px;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  padding: 20px;
+  width: 50%;
+  top: 15%;
+}
+
+.get_started {
+  top: 30%;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: large;
+  font-weight: bold;
+  background-color: #5dc5ed;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
