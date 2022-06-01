@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@300&display=swap");
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", sans-serif;
+}
+
+.image {
+  position: absolute;
+  left: 5%;
+  top: 0%;
+  padding: 20px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100vh;
+  top:0%;
+  right:10%;
+  padding-left:70px;
+  padding-right:70px;
+  background-color: rgb(222, 239, 253);
+}
+
+form {
+  padding: 10px;
+}
+
+input {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 200px;
+  border: none;
+  display: inline-block;
+}
+
+input:focus {
+  content: "";
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  border-bottom: 2px solid rgb(19, 133, 255);
+  /* Have the border bottom from centre */
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn_login {
+  background-color: rgb(19, 133, 255);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
