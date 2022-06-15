@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   //Change background color of navbar when scrolling
@@ -32,9 +33,15 @@ const Navbar = () => {
     >
       <div className="navbar_logo">Blogging Website</div>
       <div className="navbar_links">
-        <div style={{ padding: "15px" }}>Home</div>
-        <div style={{ padding: "15px" }}>About</div>
-        <div style={{ padding: "15px" }}>Login</div>
+        <Link to="/">
+          <div style={{ padding: "15px" }}>Home</div>
+        </Link>
+        <Link to="/about">
+          <div style={{ padding: "15px" }}>About</div>
+        </Link>
+        <Link to="/login">
+          <div style={{ padding: "15px" }}>Login</div>
+        </Link>
       </div>
     </div>
   );
