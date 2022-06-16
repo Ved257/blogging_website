@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 import "./Sign_Up.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../../utils/axios";
 import { useRef, useState } from "react";
 
 const Sign_Up = () => {
@@ -30,7 +30,7 @@ const Sign_Up = () => {
       if (password !== confirm_password) {
         setError("Passwords do not match");
       } else {
-        const res = await axios.post("http://localhost:4000/user/signup", {
+        const res = await axios.post("http://localhost:4000/user/register", {
           name,
           email,
           password,
@@ -42,7 +42,7 @@ const Sign_Up = () => {
         }
       }
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   };
 

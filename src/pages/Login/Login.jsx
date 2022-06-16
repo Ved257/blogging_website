@@ -5,31 +5,29 @@ import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import axios from "axios";
 
+
 const Login = () => {
   var email_ref = useRef();
   var password_ref = useRef();
   const [error, setError] = useState("");
 
   const handleSubmit = async () => {
-    try{
+    try {
       const email = email_ref.current.value;
       const password = password_ref.current.value;
       const res = await axios.post("http://localhost:4000/user/login", {
         email,
         password,
       });
-      if(res.data.error){
+      if (res.data.error) {
         setError(res.data.error);
-      }
-      else{
+      } else {
         localStorage.setItem("token", res.data.token);
         window.location.href = "/write";
       }
+    } catch (err) {
+      console.log(err.response.message);
     }
-    catch(err){
-      console.log(err);
-    }
-
   };
 
   const defaultOptions = {
