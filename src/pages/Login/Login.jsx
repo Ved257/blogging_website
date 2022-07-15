@@ -4,6 +4,8 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import axios from "axios";
+import cookie from "react-cookies";
+
 
 
 const Login = () => {
@@ -19,6 +21,7 @@ const Login = () => {
         email,
         password,
       });
+      cookie.save("email", res.data.email);
       if (res.data.error) {
         setError(res.data.error);
       } else {

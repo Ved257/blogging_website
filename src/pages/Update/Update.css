@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(170, 215, 255);
 }
 
 .write-container{
@@ -15,6 +15,7 @@
     width: 85%;
     height: 90%;
     background-color: white;
+    /* position: absolute; */
     left:10%
 }
 

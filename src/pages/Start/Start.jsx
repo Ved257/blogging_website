@@ -14,8 +14,6 @@ const Start = () => {
   };
 
 
-
-
   return (
     <div className="Start">
       <div className="start-container">
@@ -24,7 +22,7 @@ const Start = () => {
             <h1>Pick a Template</h1>
             <h3 style={{width:"500px"}}>Explore the various website template options to find the one that best represents your brand. Each template can be customized to fit your style of storytelling.</h3>
             <h3>
-              <a target="_blank">Browse Templates</a>
+              {/* <a target="_blank">Browse Templates</a> */}
             </h3>
           </div>
           <div className="col image_2">

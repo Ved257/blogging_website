@@ -5,15 +5,15 @@ import FeatherIcon from "feather-icons-react";
 import axios from "../../utils/axios";
 import cookie from "react-cookies";
 import { useEffect } from "react";
-import "./Write.css";
+import "./Update.css";
 
-
-
-const Write = () => {
+const Update = () => {
   const email = cookie.load("email");
+  const blogID = cookie.load("blogID");
   const [user, setUser] = useState({});
   // const [display, setDisplay] = useState(false);
   const [content, setContent] = useState(<></>);
+  const [blog, setBlog] = useState({})
   const editorRef = useRef(null);
 
   const log = () => {
@@ -21,6 +21,7 @@ const Write = () => {
     setContent(editorRef.current.getContent());
     // setDisplay(true);
   };
+
 
   const handleLogout = async () => {
     try {
@@ -31,7 +32,8 @@ const Write = () => {
     }
   };
 
-  const saveContent = async () => {
+  const updateContent = async () => {
+    //Update the blog
     try {
       setContent(editorRef.current.getContent());
       const data = {
@@ -39,13 +41,11 @@ const Write = () => {
         content: content,
         userID: user._id,
       };
-      cookie.save("blogID", data.id);
       await axios
-        .post("http://localhost:4000/blog/postBlog", data)
+        .put(`http://localhost:4000/blog/updateBlog/${blogID}`, data)
         .then((res) => {
           console.log(res);
-          window.location.href = "/congratulations";
-          cookie.save("blogID", res.data);
+        //   window.location.href = "/congratulations";
         })
         .catch((err) => {
           console.log(err);
@@ -55,9 +55,6 @@ const Write = () => {
     }
   };
 
-  
-
-  //get the user detail
   useEffect(() => {
     axios
       .get(`http://localhost:4000/user/getOneUser/${email}`, {})
@@ -69,7 +66,18 @@ const Write = () => {
       });
   }, []);
 
-  console.log(user);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/blog/getBlogByID/${blogID}`)
+      .then((res) => {
+        setBlog(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  //Get the contents of the blog from the backend
 
   return (
     <div className="write">
@@ -88,12 +96,12 @@ const Write = () => {
       {/* <Sidebar /> */}
       <div className="write-container">
         {/* <textarea className='write-textarea' placeholder='Write something...'>
-        </textarea> */}
+      </textarea> */}
         <Editor
           apiKey="y8xh8v3d0xom8mi2fi6dmf2p46h6fkbqe5s2zx114e49k6gh"
           className="write-container"
           onInit={(evt, editor) => (editorRef.current = editor)}
-          initialValue="<p>This is the initial content of the editor.</p>"
+          initialValue={blog.content}
           init={{
             height: 500,
             width: "100%",
@@ -111,7 +119,7 @@ const Write = () => {
           }}
         />
         <div style={{ display: "inline-block" }}>
-          <button className="display" onClick={saveContent}>
+          <button className="display" onClick={updateContent}>
             Save content
           </button>{" "}
           <button className="display" onClick={log}>
@@ -120,14 +128,14 @@ const Write = () => {
         </div>
       </div>
       {/* <div className="write-preview">
-        {display ? (
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        ) : (
-          <div>No content yet.</div>
-        )}
-      </div> */}
+      {display ? (
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      ) : (
+        <div>No content yet.</div>
+      )}
+    </div> */}
     </div>
   );
 };
 
-export default Write;
+export default Update;
